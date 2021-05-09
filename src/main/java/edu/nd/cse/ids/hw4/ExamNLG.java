@@ -1,0 +1,111 @@
+package edu.nd.cse.ids.hw4;
+
+import edu.nd.cse.ids.hw4.messages.*;
+import org.apache.commons.cli.HelpFormatter; 
+import org.apache.commons.cli.Options; 
+import org.apache.commons.cli.ParseException; 
+import org.apache.commons.cli.GnuParser;
+import org.apache.commons.cli.CommandLine; 
+import org.apache.commons.cli.CommandLineParser; 
+
+import java.util.List;
+import java.util.LinkedList;
+import java.io.IOException; 
+
+import simplenlg.framework.*;
+import simplenlg.lexicon.*;
+import simplenlg.realiser.english.*;
+import simplenlg.phrasespec.*;
+import simplenlg.features.*;
+
+public class ExamNLG {
+    private ExamEntryReader reader;
+	private MicroPlanner microplanner; 
+	private int classification; 
+	private String question; 
+
+    public ExamNLG(String datfile, String q)
+    {
+        
+		this.reader = new ExamEntryReader(); 
+		this.reader.readExamEntryFile(datfile); 
+
+		this.microplanner = new MicroPlanner(); 
+
+		this.question = q; 
+    }
+
+	public int getClassification() 
+	{
+		return this.classification; 
+	}
+
+    public List<String> describeEntryById(int entryid)
+    {
+        try
+        {
+            ExamEntry entry = this.reader.getEntries().get(entryid);
+            return(this.describeEntry(entry));
+        } catch(Exception ex)
+        {
+            return(null);
+        }
+    }
+
+
+
+ 
+    public List<String> describeEntry(ExamEntry entry)
+    {
+		DocumentPlanner docplanner = new DocumentPlanner(); 
+
+        docplanner.createMessages(entry);
+
+		docplanner.setMessage(this.question); 
+        
+        List<Message> documentPlan = docplanner.getMessages();
+        
+        MicroPlanner microplanner = new MicroPlanner();
+        
+        List<SPhraseSpec> sentences = microplanner.lexicalize(documentPlan);
+    
+        Realizer realizer = new Realizer();
+        
+        return(realizer.realize(sentences));
+    }
+
+    public List<List<String>> describeAllEntries()
+    {
+        List<List<String>> allSentences = new LinkedList<List<String>>();
+    
+        for(ExamEntry entry: this.reader.getEntries())
+        {
+            allSentences.add(describeEntry(entry));
+        }
+        
+        return(allSentences);
+    }
+
+
+    public static void main(String[] args) throws ParseException
+    {
+		
+		Options gnuOptions = new Options(); 
+		gnuOptions.addOption("s", true, "Scale")
+				.addOption("h", true, "Scale")
+				.addOption("f", true, "Scale")
+	   			.addOption("q", true, "Scale");	
+
+		CommandLineParser gnuParser = new GnuParser(); 
+		CommandLine cmd = gnuParser.parse(gnuOptions, args); 
+
+		String question = cmd.getOptionValue("q"); 	
+
+		ExamNLG entryNlg = new ExamNLG(cmd.getOptionValue("f"), question);
+
+
+		String description = entryNlg.describeEntryById(Integer.parseInt(cmd.getOptionValue("h"))).get(0); 
+
+		System.out.println(description); 
+}
+}

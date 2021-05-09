@@ -1,0 +1,27 @@
+package edu.nd.cse.ids.hw4.messages;
+
+import edu.nd.cse.ids.hw4.*;
+
+public class NumWinsMessage extends Message
+{
+    private int numWins;
+    
+    public NumWinsMessage()
+    {
+    }
+    
+    public void generate(ExamEntry entry)
+    {
+		this.numWins = entry.getNumWins(); 
+    }
+    
+    public void setNumWins(int nw)
+    {
+		this.numWins = nw; 
+    }
+    
+    public int getNumWins()
+    {
+		return this.numWins; 
+    }
+}
