@@ -5,59 +5,158 @@ import com.opencsv.bean.CsvBindByName;
 public class ExamEntry
 {
 	@CsvBindByName
-	private int rowid; 
+	private String name; 
+
+	@CsvBindByName
+	private int wins; 
+
+	@CsvBindByName
+	private int losses; 
+
+	@CsvBindByName
+	private int ties; 
+
+	@CsvBindByName
+	private double win_percentage; 
+
+	@CsvBindByName
+	private int point_for; 
+
+	@CsvBindByName
+	private int points_against; 
+
+	@CsvBindByName
+	private int point_diff; 
+
+	@CsvBindByName
+	private double avg_victory_margin; 
+
+	@CsvBindByName
+	private double schedule_toughness; 
+
+	@CsvBindByName
+	private double team_quality; 
+
+	@CsvBindByName
+	private double offense_quality; 
+
+	@CsvBindByName
+	private double defense_quality; 
+
+	@CsvBindByName
+	private String super_bowl_winner; 
+
+	@CsvBindByName
+	private String super_bowl_loser; 
+
+	@CsvBindByName
+	private String most_wins; 
+
+	@CsvBindByName
+	private String most_losses; 
+
+	@CsvBindByName
+	private String worst_team; 
+
+	@CsvBindByName
+	private String strongest_team; 
+
+	@CsvBindByName
+	private String toughest_schedule; 
 	
 	@CsvBindByName
-	private String pl_discmethod; 
+	private String easiest_schedule; 
 
-	@CsvBindByName
-	private int pl_pnum; 
-
-	@CsvBindByName
-	private double pl_orbper; 
-
-	@CsvBindByName
-	private double pl_msinij; 
-
-	@CsvBindByName
-	private double st_dist; 
-
-	@CsvBindByName 
-	private int pl_disc; 
-
-	public int getRowId()
+	public String getName()
 	{
-		return rowid; 
+		return name; 
 	}
 
-	public String getDiscMethod() 
+	public int getWins() 
 	{
-		return pl_discmethod; 
+		return wins; 
 	}
 
-	public int getNumberPlanets() 
+	public int getLosses()
 	{
-		return pl_pnum; 
+		return losses; 
 	}
 
-	public double getNumberOrbital() 
-	{
-		return pl_orbper; 
+	public int getTies() 
+	{	
+		return ties; 
 	}
 
-	public double getPlanetMass()
+	public double getWinPercentage()
 	{
-		return pl_msinij; 
+		return win_percentage; 
 	}
 
-	public double getDist()
+	public int getPointsFor()
 	{
-		return st_dist; 
+		return points_for; 
 	}
 
-	public int getYearDiscovered() 
+	public int getPointDiff() 
 	{
-		return pl_disc; 
+		return point_diff; 
 	}
 
+	public double getAvgVictoryMargin() 
+	{
+		return avg_victory_margin; 
+	}
+
+	public double getScheduleToughness() 
+	{
+		return schedule_toughness; 
+	}
+
+	public double getTeamQuality()
+	{
+		return team_quality; 
+	}
+
+	public double getOffenseQuality() 
+	{
+		return offense_quality; 
+	}
+
+	public double getDefenseQuality() 
+	{
+		return defense_quality;
+	}
+
+	public String getSuperBowlWinner()
+	{
+		return super_bowl_winner; 
+	}
+
+	public String getSuperBowlLoser()
+	{
+		return super_bowl_loser; 
+	}
+
+	public String getMostWins() 
+	{
+		return most_wins; 
+	}
+
+	public String getMostLosses()
+	{
+		return most_losses; 
+	}
+
+	public String getWorstTeam()
+	{
+		return worst_team; 
+	}
+
+	public String getStrongestTeam()
+	{	
+		return strongest_team; 
+	}
+
+
+	
 }

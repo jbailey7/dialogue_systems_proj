@@ -36,6 +36,8 @@ public class DocumentPlanner
     public DocumentPlanner()     {
         messages = new LinkedList<Message>();
 
+		/*
+
 		String simpleMlp = ""; 
 		
 		// load in model 
@@ -66,27 +68,97 @@ public class DocumentPlanner
 			System.out.println("loading tokenizer did not work"); 
 		}
 
-		
+		*/
 	}
 
 
     public void createMessages(ExamEntry entry)
     {
-		YearDiscoveredMessage yearDiscovered = new YearDiscoveredMessage(); 
-		yearDiscovered.setYearDiscovered(entry.getYearDiscovered()); 
-		messages.add(yearDiscovered); 
 
-		PlanetMassMessage planetMass = new PlanetMassMessage(); 
-		planetMass.setPlanetMass(entry.getPlanetMass()); 
-		messages.add(planetMass); 
+		AveragePointDifferentialMessage avgPointDiff = new AveragePointDifferentialMessage(); 
+		avgPointDiff.generate(entry); 
+		messages.add(avgPointDiff); 
 
-		NumberPlanetsMessage numberPlanets = new NumberPlanetsMessage(); 
-		numberPlanets.setNumberPlanets(entry.getNumberPlanets()); 
-		messages.add(numberPlanets); 
+		BestTeamMessage bestTeam = new BestTeamMessage(); 
+		bestTeam.generate(entry); 
+		messages.add(bestTeam); 
 
-		NumberOrbitalMessage numberOrbital = new NumberOrbitalMessage(); 
-		numberOrbital.setNumberOrbital(entry.getNumberOrbital()); 
-		messages.add(numberOrbital); 
+		DefensiveQualityMessage defQual = new DefensiveQualityMessage(); 
+		defQual.generate(entry); 
+		messages.add(defQual); 
+
+		MostLossesMessage mostLosses = new MostLossesMessage(); 
+		mostLosses.generate(entry); 
+		messages.add(mostLosses); 
+
+		MostWinsMessage mostWins = new MostWinsMessage(); 
+		mostWins.generate(entry); 
+		messages.add(mostWins); 
+
+		NumLossesMessage numLosses = new NumLossesMessage(); 
+		numLossses.generate(entry); 
+		messages.add(numLosses); 
+
+		NumTiesMessage numTies = new NumTiesMessage(); 
+		numTies.generate(entry); 
+		messages.add(numTies); 
+
+		NumWinsMessage numWins = new NumWinsMessage(); 
+		numWins.generate(entry); 
+		messages.add(numWins); 
+
+		OffensiveQualityMessage offQual = new OffensiveQualityMessage(); 
+		offQual.generate(entry); 
+		messages.add(offQual); 
+
+		PointDifferentialMessage pointDiff = new PointDifferentialMessage(); 
+		pointDiff.generate(entry); 
+		messages.add(pointDiff);
+
+		PointsAgainstMessage pointsAgainst = new PoinstAgaintMessage(); 
+		pointsAgainst.generate(entry); 
+		messages.add(pointsAgainst); 
+
+		PointsForMessage pointsFor = new PoinstForMessage(); 
+		pointsFor.generate(entry); 
+		messages.add(pointsFor); 
+
+		PointsAgainstMessage pointsAgainst = new PointsAgainstMessage(); 
+		pointsAgainst.generate(entry); 
+		messages.add(pointsAgainst); 
+
+		PointsForMessage pointsFor = new PointsForMessage(); 
+		pointsFor.generate(entry); 
+		messages.add(pointsFor); 
+
+		ScheduleToughnessMessage schedTough = new ScheduleToughnessMessage(); 
+		schedTough.generate(entry); 
+		messages.add(schedTough); 
+
+		SuperBowlLoserMessage bowlLoser = new SuperBowlLoserMessage(); 
+		bowlLost.generate(entry); 
+		messages.add(bowlLost); 
+
+		SuperBowlWinnerMessage bowlWinner = new SuperBowlWinnerMessage(); 
+		bowlWinner.generate(entry); 
+		messages.add(bowlWinner); 
+
+		TeamQualityMessage qual = new TeamQualityMessage(); 
+		qual.generate(entry); 
+		messages.add(qual); 
+
+		WinPercentageMessage winPercent = new WinPercentageMessage(); 
+		winPercent.generate(entry); 
+		messages.add(winPercent); 
+
+		WorstTeamMessage worstTeam = new WorstTeamMessage(); 
+		worstTeam.generate(entry); 
+		messages.add(worstTeam); 
+	
+
+
+
+
     }
 
 		    
@@ -116,6 +188,7 @@ public class DocumentPlanner
     */
     public List<Message> getMessages()
     {
+		/*
 		try {
 			String text = this.message;
 			
@@ -161,7 +234,7 @@ public class DocumentPlanner
 
 
 
-
+			*/
 			/*
 			System.out.println("TESTING_____________"); 
 			System.out.println("INDArray output: "); 
@@ -184,7 +257,7 @@ public class DocumentPlanner
 					result.add(messages.get(i)); 
 				}
 			}*/
-
+	/*
 		} catch (Exception ex) {
 			ex.printStackTrace(); 
 			System.out.println("getMessages did not work"); 
@@ -195,7 +268,8 @@ public class DocumentPlanner
 
 
 
-		return result; 
+		return result; */
+		return messages; 
     }
 
 	public void setMessage(String m) 
