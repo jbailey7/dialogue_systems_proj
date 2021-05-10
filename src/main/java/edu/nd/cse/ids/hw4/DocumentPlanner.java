@@ -96,7 +96,7 @@ public class DocumentPlanner
 		messages.add(mostWins); 
 
 		NumLossesMessage numLosses = new NumLossesMessage(); 
-		numLossses.generate(entry); 
+		numLosses.generate(entry); 
 		messages.add(numLosses); 
 
 		NumTiesMessage numTies = new NumTiesMessage(); 
@@ -115,14 +115,6 @@ public class DocumentPlanner
 		pointDiff.generate(entry); 
 		messages.add(pointDiff);
 
-		PointsAgainstMessage pointsAgainst = new PoinstAgaintMessage(); 
-		pointsAgainst.generate(entry); 
-		messages.add(pointsAgainst); 
-
-		PointsForMessage pointsFor = new PoinstForMessage(); 
-		pointsFor.generate(entry); 
-		messages.add(pointsFor); 
-
 		PointsAgainstMessage pointsAgainst = new PointsAgainstMessage(); 
 		pointsAgainst.generate(entry); 
 		messages.add(pointsAgainst); 
@@ -136,8 +128,8 @@ public class DocumentPlanner
 		messages.add(schedTough); 
 
 		SuperBowlLoserMessage bowlLoser = new SuperBowlLoserMessage(); 
-		bowlLost.generate(entry); 
-		messages.add(bowlLost); 
+		bowlLoser.generate(entry); 
+		messages.add(bowlLoser); 
 
 		SuperBowlWinnerMessage bowlWinner = new SuperBowlWinnerMessage(); 
 		bowlWinner.generate(entry); 

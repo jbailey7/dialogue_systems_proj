@@ -11,6 +11,7 @@ import org.apache.commons.cli.CommandLineParser;
 import java.util.List;
 import java.util.LinkedList;
 import java.io.IOException; 
+import java.util.*; 
 
 import simplenlg.framework.*;
 import simplenlg.lexicon.*;
@@ -93,19 +94,26 @@ public class ExamNLG {
 		Options gnuOptions = new Options(); 
 		gnuOptions.addOption("s", true, "Scale")
 				.addOption("h", true, "Scale")
-				.addOption("f", true, "Scale")
 	   			.addOption("q", true, "Scale");	
 
 		CommandLineParser gnuParser = new GnuParser(); 
 		CommandLine cmd = gnuParser.parse(gnuOptions, args); 
 
-		String question = cmd.getOptionValue("q"); 	
+		String question = cmd.getOptionValue("q"); 
+		String filename = "data/team_data.csv"; 	
 
-		ExamNLG entryNlg = new ExamNLG(cmd.getOptionValue("f"), question);
+		ExamNLG entryNlg = new ExamNLG(filename, question);
 
 
-		String description = entryNlg.describeEntryById(Integer.parseInt(cmd.getOptionValue("h"))).get(0); 
+		int id = Integer.parseInt(cmd.getOptionValue("h"));
 
-		System.out.println(description); 
+		List<String> description = new ArrayList<String>(); 
+		description = entryNlg.describeEntryById(id); 
+
+		for (int i = 0; i < description.size(); i ++) {
+			System.out.println(description.get(i)); 
+		}
+
+		//System.out.println(description); 
 }
 }

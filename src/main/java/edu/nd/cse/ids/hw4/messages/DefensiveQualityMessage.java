@@ -12,7 +12,7 @@ public class DefensiveQualityMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.defensiveQuality = entry.getDefensiveQuality(); 
+		this.defensiveQuality = entry.getDefenseQuality(); 
     }
     
     public void setDefensiveQuality(double dq)

@@ -12,7 +12,7 @@ public class AveragePointDifferentialMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.averagePointDifferential = entry.getAveragePointDifferential(); 
+		this.averagePointDifferential = entry.getAvgPointDiff(); 
     }
     
     public void setAveragePointDifferential(double ad)

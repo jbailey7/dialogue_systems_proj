@@ -12,7 +12,7 @@ public class NumTiesMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.numTies = entry.getNumTies(); 
+		this.numTies = entry.getTies(); 
     }
     
     public void setNumTies(int nt)

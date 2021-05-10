@@ -12,7 +12,7 @@ public class NumLossesMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.numLosses = entry.getNumLosses(); 
+		this.numLosses = entry.getLosses(); 
     }
     
     public void setNumLosses(int nl)

@@ -15,7 +15,7 @@ public class BestTeamMessage extends Message
 		this.bestTeam = entry.getBestTeam(); 
     }
     
-    public void setBestTeam(String tt)
+    public void setBestTeam(String bt)
     {
 		this.bestTeam = bt; 
     }

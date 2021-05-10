@@ -20,7 +20,7 @@ public class ExamEntry
 	private double win_percentage; 
 
 	@CsvBindByName
-	private int point_for; 
+	private int points_for; 
 
 	@CsvBindByName
 	private int points_against; 
@@ -29,7 +29,7 @@ public class ExamEntry
 	private int point_diff; 
 
 	@CsvBindByName
-	private double avg_victory_margin; 
+	private double avg_point_diff; 
 
 	@CsvBindByName
 	private double schedule_toughness; 
@@ -59,7 +59,7 @@ public class ExamEntry
 	private String worst_team; 
 
 	@CsvBindByName
-	private String strongest_team; 
+	private String best_team; 
 
 	@CsvBindByName
 	private String toughest_schedule; 
@@ -97,14 +97,19 @@ public class ExamEntry
 		return points_for; 
 	}
 
+	public int getPointsAgainst()
+	{
+		return points_against; 
+	}
+
 	public int getPointDiff() 
 	{
 		return point_diff; 
 	}
 
-	public double getAvgVictoryMargin() 
+	public double getAvgPointDiff() 
 	{
-		return avg_victory_margin; 
+		return avg_point_diff; 
 	}
 
 	public double getScheduleToughness() 
@@ -152,9 +157,9 @@ public class ExamEntry
 		return worst_team; 
 	}
 
-	public String getStrongestTeam()
+	public String getBestTeam()
 	{	
-		return strongest_team; 
+		return best_team; 
 	}
 
 

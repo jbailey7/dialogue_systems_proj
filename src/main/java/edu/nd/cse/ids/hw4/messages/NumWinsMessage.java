@@ -12,7 +12,7 @@ public class NumWinsMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.numWins = entry.getNumWins(); 
+		this.numWins = entry.getWins(); 
     }
     
     public void setNumWins(int nw)

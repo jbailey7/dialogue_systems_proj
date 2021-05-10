@@ -1,4 +1,4 @@
-name,wins,losses,ties,win_percentage,points_for,points_against,point_diff,avg_victory_margin,schedule_toughness,team_quality,offense_quality,defense_quality,super_bowl_winner,super_bowl_loser,most_wins,most_losses,worst_team,strongest_team,toughest_schedule,easiest_schedule
+name,wins,losses,ties,win_percentage,points_for,points_against,point_diff,avg_point_diff,schedule_toughness,team_quality,offense_quality,defense_quality,super_bowl_winner,super_bowl_loser,most_wins,most_losses,worst_team,best_team,toughest_schedule,easiest_schedule
 Buffalo Bills,13,3,0,.813,501,375,126,7.9,-0.2,7.7,7.1,0.6,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
 Miami Dolphins,10,6,0,.625,404,338,66,4.1,-1.2,3.0,0.3,2.7,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
 New England Patriots,7,9,0,.438,326,353,-27,-1.7,0.7,-1.0,-4.2,3.2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
@@ -31,5 +31,4 @@ Seattle Seahawks,12,4,0,.750,459,371,88,5.5,0.0,5.5,4.8,0.7,n/a,n/a,n/a,n/a,n/a,
 Los Angeles Rams,10,6,0,.625,372,296,76,4.8,0.7,5.4,-0.8,6.2,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
 Arizona Cardinals,8,8,0,.500,410,367,43,2.7,-0.1,2.6,1.5,1.0,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
 San Francisco 49ers,6,10,0,.375,376,390,-14,-0.9,1.7,0.8,0.2,0.7,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a
-Overall,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,n/a,Tampa Bay Buccaneers,Kansas City Chiefs,Kansas City Chiefs,Jacksonville Jaguars,Jacksonville Jaguars,New Orleans Saints,Carolina Panthers,Indianapolis Colts
-
+Overall,0,0,0,0.0,0,0,0,0.0,0.0,0.0,0.0,0.0,Tampa Bay Buccaneers,Kansas City Chiefs,Kansas City Chiefs,Jacksonville Jaguars,Jacksonville Jaguars,New Orleans Saints,Carolina Panthers,Indianapolis Colts

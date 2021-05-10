@@ -17,7 +17,7 @@ public class ScheduleToughnessMessage extends Message
     
     public void setScheduleToughness(double st)
     {
-		this.schedulteToughness = st; 
+		this.scheduleToughness = st; 
     }
     
     public double getScheduleToughness()

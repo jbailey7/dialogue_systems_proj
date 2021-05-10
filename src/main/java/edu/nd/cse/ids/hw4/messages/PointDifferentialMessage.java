@@ -12,7 +12,7 @@ public class PointDifferentialMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.pointDifferential = entry.getPointDifferential(); 
+		this.pointDifferential = entry.getPointDiff(); 
     }
     
     public void setPointDifferential(int pd)

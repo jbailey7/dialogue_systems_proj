@@ -12,7 +12,7 @@ public class OffensiveQualityMessage extends Message
     
     public void generate(ExamEntry entry)
     {
-		this.offensiveQuality = entry.getOffensiveQuality(); 
+		this.offensiveQuality = entry.getOffenseQuality(); 
     }
     
     public void setOffensiveQuality(double oq)
