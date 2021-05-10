@@ -10,7 +10,7 @@ public class WinPercentageMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.winPercentage = entry.getWinPercentage(); 
     }

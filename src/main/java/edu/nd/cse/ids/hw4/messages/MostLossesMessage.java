@@ -10,7 +10,7 @@ public class MostLossesMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.mostLosses = entry.getMostLosses(); 
     }

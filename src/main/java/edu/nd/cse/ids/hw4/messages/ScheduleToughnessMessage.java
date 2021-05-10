@@ -10,7 +10,7 @@ public class ScheduleToughnessMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.scheduleToughness = entry.getScheduleToughness(); 
     }

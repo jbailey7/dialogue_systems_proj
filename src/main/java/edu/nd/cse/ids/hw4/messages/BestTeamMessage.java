@@ -10,7 +10,7 @@ public class BestTeamMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.bestTeam = entry.getBestTeam(); 
     }

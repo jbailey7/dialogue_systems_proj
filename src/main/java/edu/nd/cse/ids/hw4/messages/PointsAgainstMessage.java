@@ -10,7 +10,7 @@ public class PointsAgainstMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.pointsAgainst = entry.getPointsAgainst(); 
     }

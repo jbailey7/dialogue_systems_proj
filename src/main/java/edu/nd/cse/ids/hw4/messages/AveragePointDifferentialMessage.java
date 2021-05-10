@@ -10,7 +10,7 @@ public class AveragePointDifferentialMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.averagePointDifferential = entry.getAvgPointDiff(); 
     }

@@ -10,7 +10,7 @@ public class OffensiveQualityMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.offensiveQuality = entry.getOffenseQuality(); 
     }

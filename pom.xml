@@ -85,7 +85,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>edu.nd.cse.ids.hw4.ExamNLG</mainClass>
+							<mainClass>edu.nd.cse.ids.hw4.TeamNLG</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

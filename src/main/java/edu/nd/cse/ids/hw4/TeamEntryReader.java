@@ -6,27 +6,27 @@ import java.util.List;
 import java.util.HashMap;
 import java.io.FileReader;
 
-public class ExamEntryReader
+public class TeamEntryReader
 {
-	private List<ExamEntry> entries; 
+	private List<TeamEntry> entries; 
 
-    public ExamEntryReader()
+    public TeamEntryReader()
     {
         entries = null;
     }
 
-    public void readExamEntryFile(String filename)
+    public void readTeamEntryFile(String filename)
     {
         try {
             this.entries = new CsvToBeanBuilder(new FileReader(filename))
-                                .withType(ExamEntry.class).build().parse();
+                                .withType(TeamEntry.class).build().parse();
         } catch(Exception ex)
         {
             System.out.println(ex);
         }
     }
     
-    public List<ExamEntry> getEntries()
+    public List<TeamEntry> getEntries()
     {
         return this.entries;
     }

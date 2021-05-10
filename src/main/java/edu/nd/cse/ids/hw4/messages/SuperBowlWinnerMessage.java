@@ -10,7 +10,7 @@ public class SuperBowlWinnerMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.superBowlWinner = entry.getSuperBowlWinner(); 
     }

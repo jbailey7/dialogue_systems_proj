@@ -10,7 +10,7 @@ public class NumTiesMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.numTies = entry.getTies(); 
     }

@@ -72,7 +72,7 @@ public class DocumentPlanner
 	}
 
 
-    public void createMessages(ExamEntry entry)
+    public void createMessages(TeamEntry entry)
     {
 
 		AveragePointDifferentialMessage avgPointDiff = new AveragePointDifferentialMessage(); 

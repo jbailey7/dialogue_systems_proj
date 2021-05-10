@@ -10,7 +10,7 @@ public class PointsForMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.pointsFor = entry.getPointsFor(); 
     }

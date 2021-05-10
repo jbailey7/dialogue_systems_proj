@@ -10,7 +10,7 @@ public class TeamQualityMessage extends Message
     {
     }
     
-    public void generate(ExamEntry entry)
+    public void generate(TeamEntry entry)
     {
 		this.teamQuality = entry.getTeamQuality(); 
     }

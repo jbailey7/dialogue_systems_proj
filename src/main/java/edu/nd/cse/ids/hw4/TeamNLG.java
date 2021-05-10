@@ -19,17 +19,17 @@ import simplenlg.realiser.english.*;
 import simplenlg.phrasespec.*;
 import simplenlg.features.*;
 
-public class ExamNLG {
-    private ExamEntryReader reader;
+public class TeamNLG {
+    private TeamEntryReader reader;
 	private MicroPlanner microplanner; 
 	private int classification; 
 	private String question; 
 
-    public ExamNLG(String datfile, String q)
+    public TeamNLG(String datfile, String q)
     {
         
-		this.reader = new ExamEntryReader(); 
-		this.reader.readExamEntryFile(datfile); 
+		this.reader = new TeamEntryReader(); 
+		this.reader.readTeamEntryFile(datfile); 
 
 		this.microplanner = new MicroPlanner(); 
 
@@ -45,7 +45,7 @@ public class ExamNLG {
     {
         try
         {
-            ExamEntry entry = this.reader.getEntries().get(entryid);
+            TeamEntry entry = this.reader.getEntries().get(entryid);
             return(this.describeEntry(entry));
         } catch(Exception ex)
         {
@@ -56,7 +56,7 @@ public class ExamNLG {
 
 
  
-    public List<String> describeEntry(ExamEntry entry)
+    public List<String> describeEntry(TeamEntry entry)
     {
 		DocumentPlanner docplanner = new DocumentPlanner(); 
 
@@ -79,7 +79,7 @@ public class ExamNLG {
     {
         List<List<String>> allSentences = new LinkedList<List<String>>();
     
-        for(ExamEntry entry: this.reader.getEntries())
+        for(TeamEntry entry: this.reader.getEntries())
         {
             allSentences.add(describeEntry(entry));
         }
@@ -102,7 +102,7 @@ public class ExamNLG {
 		String question = cmd.getOptionValue("q"); 
 		String filename = "data/team_data.csv"; 	
 
-		ExamNLG entryNlg = new ExamNLG(filename, question);
+		TeamNLG entryNlg = new TeamNLG(filename, question);
 
 
 		int id = Integer.parseInt(cmd.getOptionValue("h"));

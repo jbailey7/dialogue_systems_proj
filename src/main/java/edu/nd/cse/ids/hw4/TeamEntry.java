@@ -2,7 +2,7 @@ package edu.nd.cse.ids.hw4;
 
 import com.opencsv.bean.CsvBindByName; 
 
-public class ExamEntry
+public class TeamEntry
 {
 	@CsvBindByName
 	private String name; 
