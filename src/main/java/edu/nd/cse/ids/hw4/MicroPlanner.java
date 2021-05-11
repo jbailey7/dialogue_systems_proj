@@ -143,6 +143,11 @@ public class MicroPlanner
 
 	public SPhraseSpec handleBestTeamMessage(BestTeamMessage message) {
 		SPhraseSpec s1 = nlgFactory.createClause(); 
+		s1.setSubject("team"); 
+		s1.addFrontModifier("the best"); 
+		s1.setVerb("is"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the " + message.getBestTeam()); 
 
 		return s1; 
 	}
@@ -173,13 +178,23 @@ public class MicroPlanner
 	}
 
 	public SPhraseSpec handleMostLossesMessage(MostLossesMessage message) {
-		SPhraseSpec s1 = nlgFactory.createClause(); 
+		SPhraseSpec s1 = nlgFactory.createClause();
+	   	s1.setSubject(message.getMostLosses()); 
+		s1.addFrontModifier("the"); 
+		s1.setVerb("lose"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the most games"); 	
 
 		return s1; 
 	}
 
 	public SPhraseSpec handleMostWinsMessage(MostWinsMessage message) {
 		SPhraseSpec s1 = nlgFactory.createClause(); 
+		s1.setSubject(message.getMostWins()); 
+		s1.addFrontModifier("the"); 
+		s1.setVerb("win"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the most games"); 
 
 		return s1; 
 	}
@@ -375,12 +390,23 @@ public class MicroPlanner
 
 	public SPhraseSpec handleSuperBowlWinnerMessage(SuperBowlWinnerMessage message) {
 		SPhraseSpec s1 = nlgFactory.createClause(); 
+		s1.setSubject(message.getSuperBowlWinner()); 
+		s1.addFrontModifier("the"); 
+		s1.setVerb("win"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the Super Bowl"); 
 
 		return s1; 
 	}
 
 	public SPhraseSpec handleSuperBowlLoserMessage(SuperBowlLoserMessage message) {
 		SPhraseSpec s1 = nlgFactory.createClause(); 
+		s1.setSubject(message.getSuperBowlLoser()); 
+		s1.addFrontModifier("the"); 
+		s1.setVerb("lose"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the Super Bowl"); 
+
 
 		return s1; 
 	}
@@ -435,6 +461,12 @@ public class MicroPlanner
 
 	public SPhraseSpec handleWorstTeamMessage(WorstTeamMessage message) {
 		SPhraseSpec s1 = nlgFactory.createClause(); 
+		s1.setSubject("team"); 
+		s1.addFrontModifier("the worst"); 
+		s1.setVerb("is"); 
+		s1.setTense(Tense.PAST); 
+		s1.setObject("the " + message.getWorstTeam()); 
+
 
 		return s1; 
 	}
