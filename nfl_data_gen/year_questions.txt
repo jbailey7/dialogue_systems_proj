@@ -1,0 +1,42 @@
+Possibly just parse for year, and if none found, default 2020?
+
+num:2020,Which team was the strongest in 2020?
+num:2020,How is the raiders defense
+num:2020,who won the superbowl
+num:2020,what team was the best team in 2020
+num:2020,who scored the most points last year
+num:2019,how did the jaguars do in the regular season in 2019
+num:2019,did the ravens win the superbowl in 2019
+num:2019,in the 2019 season, who lost the superbowl
+num:2019,what was the worst team in 2019
+num:2019,did the steelers have the strongest defense in 2019
+num:2018,who had the most wins in 2018
+num:2018,what team had the toughest schedule in 2018
+num:2018,
+num:2018,
+num:2018,
+num:2017,
+num:2017,
+num:2017,
+num:2017,
+num:2017,
+num:2016,
+num:2016,
+num:2016,
+num:2016,
+num:2016,
+num:2015,
+num:2015,
+num:2015,
+num:2015,
+num:2015,
+num:2014,
+num:2014,
+num:2014,
+num:2014,
+num:2014,
+num:2013,
+num:2013,
+num:2013,
+num:2013,
+num:2013,
