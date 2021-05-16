@@ -1,0 +1,36 @@
+num:avgpointdiff,What was the average point differential?
+num:avgpointdiff,average point differential
+num:avgpointdiff,avg point diff
+num:defqual,What was the defensive quality score?
+num:defqual,defensive quality?
+num:defqual,How good was the defense?
+num:numlosses,How many games did they lose?
+num:numlosses,number of losses
+num:numlosses,This team lost how many games
+num:numties,How many games did they tie?
+num:numties,This team tied how many games
+num:numties,number of ties
+num:numwins,How many games did they win?
+num:numwins,number of wins
+num:numwins,This team won how many games
+num:offqual,What was the offensive quality score?
+num:offqual,offensive quality?
+num:offqual,How good was the offense?
+num:pointdiff,What was the point differential?
+num:pointdiff,point differential
+num:pointdiff,point diff
+num:pointsagainst,How many points did this team allow?
+num:pointsagainst,points against
+num:pointsagainst,How many points were scored on this team?
+num:pointsfor,How many points did this team score?
+num:pointsfor,points for
+num:pointsfor,This team scored how many points
+num:schedtoughness,What was this teams schedule toughness rating?
+num:schedtoughness,schedule toughness
+num:schedtoughness,how difficult was this teams schedule?
+num:teamqual,how good was this team
+num:teamqual,team quality
+num:teamqual,What was this teams quality rating?
+num:winpercent,What was this teams win percentage?
+num:winpercent,win percentage
+num:winpercent,what percentage of games did this team win
