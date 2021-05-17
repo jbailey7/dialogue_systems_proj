@@ -18,6 +18,8 @@ import simplenlg.lexicon.*;
 import simplenlg.realiser.english.*;
 import simplenlg.phrasespec.*;
 import simplenlg.features.*;
+import java.util.regex.Matcher; 
+import java.util.regex.Pattern; 
 
 public class TeamNLG {
     private TeamEntryReader reader;
@@ -147,9 +149,22 @@ public class TeamNLG {
 		// interactive part
 		String userQuestion = ""; 
 		String questionType = ""; 
+		String year = ""; 
 		Scanner scan = new Scanner(System.in); 
 		System.out.println("enter question > "); 
 		userQuestion = scan.nextLine(); 
+
+		// get year from question
+		Pattern pattern = Pattern.compile("(\\d{4})"); 
+
+		Matcher matcher = pattern.matcher(userQuestion); 
+
+		if (matcher.find()) {
+			year = matcher.group(1); 
+		} else {
+			year = "2020"; // default value if no year found
+		}
+
 		System.out.println("league question or team question > "); 
 		questionType = scan.nextLine(); 
 
