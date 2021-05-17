@@ -4,33 +4,33 @@ num:avgpointdiff,avg point diff
 num:defqual,what was the defensive quality score
 num:defqual,defensive quality
 num:defqual,how good was the defense
-num:numlosses,how many games did they lose
+num:numlosses,how many games did lose
 num:numlosses,number of losses
-num:numlosses,this team lost how many games
-num:numties,how many games did they tie
-num:numties,this team tied how many games
+num:numlosses,lost how many games
+num:numties,how many games did tie
+num:numties,tied how many games
 num:numties,number of ties
-num:numwins,how many games did they win
+num:numwins,how many games did win
 num:numwins,number of wins
-num:numwins,this team won how many games
+num:numwins,won how many games
 num:offqual,what was the offensive quality score
 num:offqual,offensive quality
 num:offqual,how good was the offense
 num:pointdiff,what was the point differential
 num:pointdiff,point differential
 num:pointdiff,point diff
-num:pointsagainst,how many points did this team allow
+num:pointsagainst,how many points did allow
 num:pointsagainst,points against
-num:pointsagainst,how many points were scored on this team
-num:pointsfor,how many points did this team score
+num:pointsagainst,how many points were scored on
+num:pointsfor,how many points did score
 num:pointsfor,points for
-num:pointsfor,this team scored how many points
-num:schedtoughness,what was this teams schedule toughness rating
+num:pointsfor,scored how many points
+num:schedtoughness,what was schedule toughness rating
 num:schedtoughness,schedule toughness
-num:schedtoughness,how difficult was this teams schedule
-num:teamqual,how good was this team
+num:schedtoughness,how difficult was schedule
+num:teamqual,how good was
 num:teamqual,team quality
-num:teamqual,what was this teams quality rating
-num:winpercent,what was this teams win percentage
+num:teamqual,what was quality rating
+num:winpercent,what was win percentage
 num:winpercent,win percentage
-num:winpercent,what percentage of games did this team win
+num:winpercent,what percentage of games did win
