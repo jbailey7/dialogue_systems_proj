@@ -27,16 +27,19 @@ import org.deeplearning4j.nn.modelimport.keras.preprocessing.text.TokenizerMode;
 
 public class DocumentPlanner
 {
-    private List<Message> messages;
+    private List<Message> teammessages;
+	private List<Message> leaguemessages; 
 	private MultiLayerNetwork model; 
 	private KerasTokenizer tokenizer; 
 	private String message; 
-	private int classification; 
+	private int classification;
+   	private int type; 	
 
+	/*
     public DocumentPlanner()     {
         messages = new LinkedList<Message>();
 
-		/*
+		
 
 		String simpleMlp = ""; 
 		
@@ -68,7 +71,57 @@ public class DocumentPlanner
 			System.out.println("loading tokenizer did not work"); 
 		}
 
-		*/
+		
+	}
+	*/
+
+	public DocumentPlanner(String type) {
+		teammessages = new LinkedList<Message>(); 
+		leaguemessages = new LinkedList<Message>(); 
+
+		String simpleMlp = ""; 
+		String tokenPath = ""; 
+
+		// load in model and tokenizer based on question type
+		if (type.equals("team")) {
+			simpleMlp = "team_lstm.h5"; 
+			tokenPath = "team_tok.json"; 
+			this.setType(0); 
+			
+			try {
+				model = KerasModelImport.importKerasSequentialModelAndWeights(simpleMlp); 
+			} catch (Exception e) {
+				e.printStackTrace(); 
+				System.out.println("creating the team model from the h5 file did not work"); 
+			}
+
+			try {
+				tokenizer = KerasTokenizer.fromJson(tokenPath); 
+			} catch (Exception e) {
+				e.printStackTrace(); 
+				System.out.println("loading team tokenizer did not work"); 
+			}
+		} else {
+			simpleMlp = "league_lstm.h5"; 
+			tokenPath = "league_tok.json"; 
+			this.setType(1); 
+			
+			try {
+				model = KerasModelImport.importKerasSequentialModelAndWeights(simpleMlp); 
+			} catch (Exception e) {
+				e.printStackTrace(); 
+				System.out.println("creating the league model from the h5 file did not work"); 
+			}
+
+			try {
+				tokenizer = KerasTokenizer.fromJson(tokenPath); 
+			} catch (Exception e) {
+				e.printStackTrace(); 
+				System.out.println("loading league tokenizer did not work"); 
+			}
+
+
+		}
 	}
 
 
@@ -77,75 +130,75 @@ public class DocumentPlanner
 
 		AveragePointDifferentialMessage avgPointDiff = new AveragePointDifferentialMessage(); 
 		avgPointDiff.generate(entry); 
-		messages.add(avgPointDiff); 
+		teammessages.add(avgPointDiff); 
 
 		BestTeamMessage bestTeam = new BestTeamMessage(); 
 		bestTeam.generate(entry); 
-		messages.add(bestTeam); 
+		leaguemessages.add(bestTeam); 
 
 		DefensiveQualityMessage defQual = new DefensiveQualityMessage(); 
 		defQual.generate(entry); 
-		messages.add(defQual); 
+		teammessages.add(defQual); 
 
 		MostLossesMessage mostLosses = new MostLossesMessage(); 
 		mostLosses.generate(entry); 
-		messages.add(mostLosses); 
+		leaguemessages.add(mostLosses); 
 
 		MostWinsMessage mostWins = new MostWinsMessage(); 
 		mostWins.generate(entry); 
-		messages.add(mostWins); 
+		leaguemessages.add(mostWins); 
 
 		NumLossesMessage numLosses = new NumLossesMessage(); 
 		numLosses.generate(entry); 
-		messages.add(numLosses); 
+		teammessages.add(numLosses); 
 
 		NumTiesMessage numTies = new NumTiesMessage(); 
 		numTies.generate(entry); 
-		messages.add(numTies); 
+		teammessages.add(numTies); 
 
 		NumWinsMessage numWins = new NumWinsMessage(); 
 		numWins.generate(entry); 
-		messages.add(numWins); 
+		teammessages.add(numWins); 
 
 		OffensiveQualityMessage offQual = new OffensiveQualityMessage(); 
 		offQual.generate(entry); 
-		messages.add(offQual); 
+		teammessages.add(offQual); 
 
 		PointDifferentialMessage pointDiff = new PointDifferentialMessage(); 
 		pointDiff.generate(entry); 
-		messages.add(pointDiff);
+		teammessages.add(pointDiff);
 
 		PointsAgainstMessage pointsAgainst = new PointsAgainstMessage(); 
 		pointsAgainst.generate(entry); 
-		messages.add(pointsAgainst); 
+		teammessages.add(pointsAgainst); 
 
 		PointsForMessage pointsFor = new PointsForMessage(); 
 		pointsFor.generate(entry); 
-		messages.add(pointsFor); 
+		teammessages.add(pointsFor); 
 
 		ScheduleToughnessMessage schedTough = new ScheduleToughnessMessage(); 
 		schedTough.generate(entry); 
-		messages.add(schedTough); 
+		teammessages.add(schedTough); 
 
 		SuperBowlLoserMessage bowlLoser = new SuperBowlLoserMessage(); 
 		bowlLoser.generate(entry); 
-		messages.add(bowlLoser); 
+		leaguemessages.add(bowlLoser); 
 
 		SuperBowlWinnerMessage bowlWinner = new SuperBowlWinnerMessage(); 
 		bowlWinner.generate(entry); 
-		messages.add(bowlWinner); 
+		leaguemessages.add(bowlWinner); 
 
 		TeamQualityMessage qual = new TeamQualityMessage(); 
 		qual.generate(entry); 
-		messages.add(qual); 
+		teammessages.add(qual); 
 
 		WinPercentageMessage winPercent = new WinPercentageMessage(); 
 		winPercent.generate(entry); 
-		messages.add(winPercent); 
+		teammessages.add(winPercent); 
 
 		WorstTeamMessage worstTeam = new WorstTeamMessage(); 
 		worstTeam.generate(entry); 
-		messages.add(worstTeam); 
+		leaguemessages.add(worstTeam); 
 	
 
 
@@ -180,7 +233,7 @@ public class DocumentPlanner
     */
     public List<Message> getMessages()
     {
-		/*
+		
 		try {
 			String text = this.message;
 			
@@ -189,16 +242,12 @@ public class DocumentPlanner
 			text = text.toLowerCase(); 
 			
 
-			int seqlen = 250; 
+			int seqlen = 200; 
 
 			String[] texts = new String[1]; 
 			texts[0] = text; 
-
-
-			KerasTokenizer tok; 
-			tok = KerasTokenizer.fromJson("qa_tok.json"); 
 		
-			Integer[][] seq = tok.textsToSequences(texts); 
+			Integer[][] seq = tokenizer.textsToSequences(texts); 
 
 
 
@@ -226,7 +275,7 @@ public class DocumentPlanner
 
 
 
-			*/
+			
 			/*
 			System.out.println("TESTING_____________"); 
 			System.out.println("INDArray output: "); 
@@ -249,19 +298,22 @@ public class DocumentPlanner
 					result.add(messages.get(i)); 
 				}
 			}*/
-	/*
+	
 		} catch (Exception ex) {
 			ex.printStackTrace(); 
 			System.out.println("getMessages did not work"); 
 		}
 
 		List<Message> result = new LinkedList<Message>(); 
-		result.add(messages.get(this.classification)); 
+		if (this.getType() == 0) {
+			result.add(teammessages.get(this.classification)); 
+		} else {
+			result.add(leaguemessages.get(this.classification)); 
+		}
 
 
 
-		return result; */
-		return messages; 
+		return result; 
     }
 
 	public void setMessage(String m) 
@@ -277,5 +329,15 @@ public class DocumentPlanner
 	public int getClassification()
 	{
 		return this.classification; 
+	}
+
+	public void setType(int t) 
+	{
+		this.type = t; 
+	}
+
+	public int getType() 
+	{
+		return this.type; 
 	}
 }

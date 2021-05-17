@@ -24,6 +24,7 @@ public class TeamNLG {
 	private MicroPlanner microplanner; 
 	private int classification; 
 	private String question; 
+	private String qType; 
 
     public TeamNLG(String datfile, String q)
     {
@@ -36,9 +37,29 @@ public class TeamNLG {
 		this.question = q; 
     }
 
+	public String getQType()
+	{
+		return this.qType; 
+	}
+
+	public void setQType(String type) 
+	{
+		this.qType = type; 
+	}
+
 	public int getClassification() 
 	{
 		return this.classification; 
+	}
+
+	public void setQuestion(String q) 
+	{
+		this.question = q; 
+	}
+
+	public String getQuestion() 
+	{
+		return this.question; 
 	}
 
     public List<String> describeEntryById(int entryid)
@@ -58,14 +79,15 @@ public class TeamNLG {
  
     public List<String> describeEntry(TeamEntry entry)
     {
-		DocumentPlanner docplanner = new DocumentPlanner(); 
+		DocumentPlanner docplanner = new DocumentPlanner(this.qType); 
 
         docplanner.createMessages(entry);
 
 		docplanner.setMessage(this.question); 
         
-        List<Message> documentPlan = docplanner.getMessages();
-        
+        //List<Message> documentPlan = docplanner.getMessages();
+       	List<Message> documentPlan = docplanner.getMessages();
+
         MicroPlanner microplanner = new MicroPlanner();
         
         List<SPhraseSpec> sentences = microplanner.lexicalize(documentPlan);
@@ -92,16 +114,22 @@ public class TeamNLG {
     {
 		
 		Options gnuOptions = new Options(); 
+		/*
 		gnuOptions.addOption("s", true, "Scale")
 				.addOption("h", true, "Scale")
 	   			.addOption("q", true, "Scale");	
+		*/
+		gnuOptions.addOption("s", true, "Scale")
+				.addOption("h", true, "Scale"); 
 
 		CommandLineParser gnuParser = new GnuParser(); 
 		CommandLine cmd = gnuParser.parse(gnuOptions, args); 
+		
+		//String question = cmd.getOptionValue("q"); 
+		String filename = "data/team_data.csv"; 
+		int id = Integer.parseInt(cmd.getOptionValue("h")); 
 
-		String question = cmd.getOptionValue("q"); 
-		String filename = "data/team_data.csv"; 	
-
+		/*
 		TeamNLG entryNlg = new TeamNLG(filename, question);
 
 
@@ -113,6 +141,30 @@ public class TeamNLG {
 		for (int i = 0; i < description.size(); i ++) {
 			System.out.println(description.get(i)); 
 		}
+		*/
+
+
+		// interactive part
+		String userQuestion = ""; 
+		String questionType = ""; 
+		Scanner scan = new Scanner(System.in); 
+		System.out.println("enter question > "); 
+		userQuestion = scan.nextLine(); 
+		System.out.println("league question or team question > "); 
+		questionType = scan.nextLine(); 
+
+		TeamNLG entryNlg = new TeamNLG(filename, userQuestion); 
+		entryNlg.setQType(questionType); 
+		List<String> d = new ArrayList<String>(); 
+		d = entryNlg.describeEntryById(id); 
+
+		for (int i = 0; i < d.size(); i ++) {
+			System.out.println(d.get(i)); 
+		}
+
+		
+		
+
 
 		//System.out.println(description); 
 }
